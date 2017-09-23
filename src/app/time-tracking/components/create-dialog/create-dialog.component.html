@@ -1,0 +1,74 @@
+<h1 md-dialog-title>{{ title }}</h1>
+<div md-dialog-content (keydown)="validateForm(newTaskDescription.value,newProjectName.value,newClientName.value,username.value,password.value,confirmPassword.value,employmentDegree.value,adminRole);keyDownFunction($event);">
+    <table>
+        <tr>
+            <td>Create new:</td>
+            <td>
+                <select (change)="changeItemToBeCreated($event)">
+                    <option *ngFor="let item of createItems" [value]="item.id">{{item.key}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr [hidden]="item != PROJECT">
+            <td>
+                <md-input-container>
+                    <input mdInput placeholder="Project Name" #newProjectName>
+                </md-input-container>
+            </td>
+        </tr>
+        <tr [hidden]="item != TASK">
+            <td>
+                <md-input-container>
+                    <input mdInput #newTaskDescription placeholder="Description">
+                </md-input-container>
+            </td>
+        </tr>
+        <tr [hidden]="item != CLIENT">
+            <td>
+                <md-input-container>
+                    <input mdInput #newClientName placeholder="Client Name">
+                </md-input-container>
+            </td>
+        </tr>
+        <tr [hidden]="item != USER">
+            <td>
+            <label>Password length should be at least 9 !</label>
+            <br>
+                <md-input-container>
+                    <input mdInput placeholder="Username" #username>
+                </md-input-container>
+            </td>
+        </tr>
+        <tr [hidden]="item != USER">
+            <td>
+                <md-input-container>
+                    <input mdInput type="password" placeholder="Password" #password>
+                </md-input-container>
+            </td>
+        </tr>
+        <tr [hidden]="item != USER">
+            <td>
+                <md-input-container>
+                    <input mdInput type="password" placeholder="Confirm password" #confirmPassword>
+                </md-input-container>
+            </td>
+        </tr>
+        <tr [hidden]="item != USER">
+            <td>
+                <md-input-container>
+                    <input mdInput placeholder="Employment degree" #employmentDegree>
+                </md-input-container>
+            </td>
+        </tr>
+         <tr [hidden]="item != USER">
+            <td>
+                <md-checkbox #adminRole>Administrator</md-checkbox>
+            </td>
+        </tr>
+    </table>
+    <br>
+</div>
+<div md-dialog-actions>
+    <button type="button" md-button (click)="validateForm(newTaskDescription.value,newProjectName.value,newClientName.value,username.value,password.value,confirmPassword.value,employmentDegree.value,adminRole);checkMandatoryFields();">OK</button>
+    <button type="button" md-button (click)="dialogRef.close()">Cancel</button>
+</div>

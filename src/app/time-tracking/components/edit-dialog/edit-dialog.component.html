@@ -1,0 +1,69 @@
+<h1 md-dialog-title>{{ title }}</h1>
+<div md-dialog-content (keydown)="validateForm(newTaskDescription.value,newProjectName.value,newClientName.value);keyDownFunction($event);">
+    <table>
+        <tr>
+            <td>Edit a:</td>
+            <td>
+                <select (change)="changeItemToBeCreated($event)">
+                    <option *ngFor="let item of createItems" [value]="item.id">{{item.key}}</option>
+                </select>
+            </td>
+        </tr>
+        <br>
+        <tr [hidden]="item != PROJECT">
+        	<td></td>
+        	<td>
+        		<select #project (change)="projectDropdown(project.value)">
+        			<option *ngFor="let item of projects" [value]="item.id">{{item.projectName}}</option>
+        		</select>
+    		</td>
+        </tr>
+        <tr [hidden]="item != PROJECT">
+        	<td></td>
+            <td>            
+                <md-input-container>
+                    <input mdInput placeholder="Project Name" #newProjectName>
+                </md-input-container>
+            </td>
+        </tr>
+        <tr [hidden]="item != TASK">
+        	<td></td>
+        	<td>
+	        	<select #task (change)="taskDropdown(task.value)">
+	        		<option *ngFor="let item of tasks" [value]="item.id">{{item.taskDescription}}</option>
+	        	</select>
+        	</td>
+        </tr>
+        <tr [hidden]="item != TASK">
+        	<td></td>
+            <td>
+                <md-input-container>
+                    <input mdInput #newTaskDescription placeholder="Description">
+                </md-input-container>
+            </td>
+        </tr>
+        
+        <tr [hidden]="item != CLIENT">
+        	<td></td>
+        	<td>
+        		<select #client (change)="clientDropdown(client.value)">
+        			<option *ngFor="let item of clients" [value]="item.id">{{item.clientName}}</option>
+        		</select>
+        	</td>	
+        </tr>
+        
+        <tr [hidden]="item != CLIENT">
+            <td></td>
+            <td>
+                <md-input-container>
+                    <input mdInput #newClientName placeholder="Client Name">
+                </md-input-container>
+            </td>
+        </tr>
+    </table>
+</div>
+<div md-dialog-actions>
+    <button type="button" md-button (click)="validateForm(newTaskDescription.value,newProjectName.value,newClientName.value);checkMandatoryFields();">OK</button>
+    <button type="button" md-button (click)="dialogRef.close()">Cancel</button>
+    <span (click)="deleteItem();"><md-icon>delete_forever</md-icon></span>
+</div>

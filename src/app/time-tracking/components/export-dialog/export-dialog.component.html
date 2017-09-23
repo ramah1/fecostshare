@@ -1,0 +1,38 @@
+<h1 md-dialog-title>{{ title }}</h1>
+<div md-dialog-content (keydown)="readDates(fromDate,toDate);keyDownFunction($event);">
+    <table>
+        <tr>
+            <td>
+                <md-input-container>
+                    <input mdInput [mdDatepickerFilter]="myFilter" [mdDatepicker]="fromDate" placeholder="From">
+                    <button mdSuffix [mdDatepickerToggle]="fromDate"></button>
+                </md-input-container>
+                <md-datepicker #fromDate></md-datepicker>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <md-input-container>
+                    <input mdInput [mdDatepickerFilter]="myFilter" [mdDatepicker]="toDate" placeholder="To">
+                    <button mdSuffix [mdDatepickerToggle]="toDate"></button>
+                </md-input-container>
+                <md-datepicker #toDate></md-datepicker>
+            </td>
+        </tr>
+        <br>
+        <tr [hidden]="!checkIfAdmin()">
+            <td>User: </td>
+            <td>
+                <select #userprofile>
+                    <option *ngFor="let user of users" [value]='user.id'>{{ user.userName }}</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <br>
+</div>
+<div md-dialog-actions>
+    <a md-button (click)="readDates(fromDate,toDate); userDropdown(userprofile.value); checkMandatoryFields();">OK</a>
+    <button type="button" md-button (click)="dialogRef.close()">Cancel</button>
+</div>

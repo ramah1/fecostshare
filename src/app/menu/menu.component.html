@@ -1,0 +1,7 @@
+<md-menu #appMenu="mdMenu">
+    <button md-menu-item (click)="openDialog()">Change password</button>
+    <button md-menu-item (click)="logout()">Logout</button>
+</md-menu>
+<button md-icon-button [mdMenuTriggerFor]="appMenu">
+    <md-icon>account_circle</md-icon>
+</button>

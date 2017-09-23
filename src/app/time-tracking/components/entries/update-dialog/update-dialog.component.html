@@ -1,0 +1,71 @@
+<h1 md-dialog-title>{{ title }}</h1>
+<div md-dialog-content>
+    <table>
+        <tr>
+            <td>
+                <md-input-container>
+                    <input mdInput placeholder="Description" [(ngModel)]="selectedDescription">
+                </md-input-container>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>Project:</td>
+            <td>
+                <select #project (change)="projectDropdown(project.value)" [(ngModel)]='project.id'>
+                    <option *ngFor="let project of projects" [value]='project.id' [selected]='project.id === selectedProject'>{{ project.projectName }}</option>
+                </select>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>Task:</td>
+            <td>
+                <select #task (change)="taskDropdown(task.value)" [(ngModel)]='task.id'>
+                    <option *ngFor="let task of tasks" [value]="task.id" [selected]='task.id === selectedTask'>{{ task.taskDescription }}</option>
+                </select>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <md-input-container>
+                    <input mdInput placeholder="Date" #date [value]="selectedDate">
+                </md-input-container>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <md-input-container>
+                    <input mdInput placeholder="Start Time" #startTime [value]="selectedStartTime">
+                </md-input-container>
+            </td>
+            <td>&nbsp;</td>
+            <td>
+                <md-input-container>
+                    <input mdInput placeholder="End Time" #endTime [value]="selectedEndTime">
+                </md-input-container>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <md-input-container>
+                    <input mdInput placeholder="Time Spent" #timeSpent [value]="selectedTimeSpent">
+                </md-input-container>
+            </td>
+        </tr>
+    </table>
+    <br>
+</div>
+<div md-dialog-actions>
+    <!-- <button type="button" md-button (click)="getNewDescription(selectedDescription);getNewStartDateTime(date.value,startTime.value);getNewEndDateTime(date.value,endTime.value);checkMandatoryFields();">OK</button>
+    <!--<button type="button" md-button (click)="getNewValues(selectedDescription, date.value, startTime.value, endTime.value, timeSpent.value);checkMandatoryFields();dialogRef.close([selectedDescription, project.value, task.value, date.value, startTime.value, endTime.value])">OK</button>
+    <button type="button" md-button (click)="dialogRef.close()">Cancel</button>
+</div> -->
+    <p>{{ title }}</p>
+    <p>{{ message }}</p>
+    <button type="button" md-raised-button (click)="ok();">OK</button>
+    <button type="button" md-button (click)="dialogRef.close()">Cancel</button>

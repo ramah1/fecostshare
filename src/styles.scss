@@ -1,0 +1,155 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Material Design theme
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import 'flexbox.scss';
+html,
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.ftt-right {
+    text-align: right;
+}
+
+// h1 {
+//     color: #369;
+//     font-family: Arial, Helvetica, sans-serif;
+//     font-size: 250%;
+// }
+// h2,
+// h3 {
+//     color: #444;
+//     font-family: Arial, Helvetica, sans-serif;
+//     font-weight: lighter;
+// }
+// .inputdemoIcons {
+//     .right-icon {
+//     position: absolute;
+//     top: 4px;
+//     right: 2px;
+//     left: auto;
+//     margin-top: 0;
+//     }
+// }
+// .inputdemoIcons .inputIconDemo {
+//     min-height: 48px;
+// }
+// .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.email {
+//     color: green;
+// }
+// .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.name {
+//     color: dodgerblue;
+// }
+// .inputdemoIcons md-input-container.md-input-invalid > md-icon.email,
+// .inputdemoIcons md-input-container.md-input-invalid > md-icon.name {
+//     color: red;
+// }
+.btn-sidebar {
+    width: 100%;
+}
+
+.modal-header {
+    background-color: #337ab7;
+    text-align: center;
+}
+
+.md-radio-outer-circle {
+    border: 0px !important;
+}
+
+.btn-footer {
+    text-align: right;
+}
+
+.btn-radio {
+    text-align: center;
+}
+
+pre.card.card-block.card-header {
+    padding: 0px !important;
+    text-align: center;
+}
+
+daypicker table {
+    margin-left: 25% !important;
+}
+
+.modal-dialog {
+    margin: 175px auto !important;
+}
+
+.app-input-section.mat-card {
+    position: fixed;
+    top: 40%;
+    left: 32.5%;
+    width: 35%;
+    text-align: center;
+    img{
+        float: right;
+        margin-left: -75%;
+        margin-top: -20px;
+    }
+}
+
+div.mat-input-underline {
+    margin-top: 15px;
+}
+
+.mat-input-placeholder-wrapper {
+    padding-top: 75% !important;
+}
+
+.pages.active a {
+    background-color: #3f51b5;
+    color: white;
+}
+
+.striped {
+    .datatable-row-odd {
+        background: #eee;
+    }
+}
+
+.single-selection,
+.multi-selection,
+.multi-click-selection {
+    .active,
+    .active .datatable-row-group {
+        background-color: rgba(69, 79, 179, 0.12);
+        color: black;
+    }
+}
+
+.datatable-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    font-size: 16px;
+}
+
+.md-toolbar {
+    width: 1125px !important;
+}
+
+.datatable-body {
+    .datatable-body-row {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        border-width: 0px 0px 0.5px 0px;
+        .datatable-body-cell {
+          text-align: left;
+          padding: .5rem 1.2rem;
+          vertical-align: top;
+          border-top: 0;
+
+          -webkit-transition: width 0.3s ease;
+          transition: width 0.3s ease;
+        }
+    }
+}
+
+.totalTimeSpent{
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 85%;
+}

@@ -1,0 +1,25 @@
+<div class="layout-column">
+  <md-toolbar color="primary">
+    <span id="today">Today - {{currentDate}}</span>
+    <span class="flex"></span>
+    <span>
+      <button md-raised-button color="primary" (click)="openCreateDialog()">CREATE</button>
+      <!-- <button md-raised-button color="primary">SEARCH</button> -->
+      <button md-raised-button color="primary" (click)="openEditDialog()">EDIT</button>
+      <button md-raised-button color="primary" (click)="openExportDialog()">EXPORT</button>
+    </span>
+  </md-toolbar>
+
+  <div class="layout-row flex">
+    <md-card class="flex">
+      <app-entries></app-entries>
+    </md-card>
+<!-- 
+    <md-card class="tt-sidebar">
+      <app-sidebar></app-sidebar>
+    </md-card> -->
+  </div>
+</div>
+<div fxLayout="column" fxLayoutAlign="center center">
+  <img src="assets/Logo.png" width="200px"> 
+ </div>

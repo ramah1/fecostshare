@@ -1,0 +1,20 @@
+<md-card class="app-input-section" (keydown)="getUsernamePassword(username.value,password.value);keyDownFunction($event);">
+    <img src="assets/Logo.png" width="100px">
+    <p>
+        <md-input-container>
+            <input mdInput #username>
+            <md-placeholder>
+                <md-icon class="material-icons app-input-icon">face</md-icon>Username
+            </md-placeholder>
+        </md-input-container>
+        <br />
+        <md-input-container>
+            <input mdInput #password type="password" maxlength="50">
+            <md-placeholder>
+                <md-icon class="material-icons app-input-icon">security</md-icon>Password
+            </md-placeholder>
+        </md-input-container>
+        <br />
+        <button md-button (click)="getUsernamePassword(username.value,password.value);checkMandatoryFields();">Login</button>
+    </p>
+</md-card>

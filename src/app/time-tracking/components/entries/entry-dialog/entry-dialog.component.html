@@ -1,0 +1,88 @@
+<h1 md-dialog-title>{{ title }}</h1>
+<div md-dialog-content (keydown)="getValues(description.value,selectedDate.value,startTime.value,endTime.value,timeSpent.value,client.value,project.value,task.value,checkBoxTimes,billable);readDate(selectedDate);keyDownFunction($event);">
+    <table>
+        <tr>
+            <td>
+                <md-input-container>
+                    <input mdInput #description placeholder="Description">
+                </md-input-container>
+            </td>
+        </tr>
+        <br>
+    <tr>
+      <td>Client:</td>
+      <td>
+        <select #client (change)="clientDropdown(client.value)">
+          <option *ngFor="let item of clients" [value]='item.id'>{{ item.clientName }}</option>
+        </select>
+      </td>
+    </tr>
+    <br>
+    <tr>
+      <td>Project:</td>
+      <td>
+        <select #project (change)="projectDropdown(project.value)">
+          <option *ngFor="let item of projects" [value]='item.id'>{{ item.projectName }}</option>
+        </select>
+      </td>
+    </tr>
+    <br>
+    <tr>
+      <td>Task:</td>
+      <td>
+        <select #task (change)="taskDropdown(task.value)">
+          <option *ngFor="let item of tasks" [value]="item.id">{{ item.taskDescription }}</option>
+        </select>
+      </td>
+    </tr>
+    <br>
+    <tr>
+      <td>
+        <md-input-container>
+          <input mdInput [mdDatepickerFilter]="myFilter" [mdDatepicker]="selectedDate" placeholder="Date">
+           <button mdSuffix [mdDatepickerToggle]="selectedDate"></button>
+        </md-input-container>
+         <md-datepicker #selectedDate></md-datepicker>*
+      </td>
+    </tr>
+    <br>
+    <tr>
+      <td>
+        <md-checkbox #checkBoxTimes (click)="checkEnableTimes()">Enable typing times</md-checkbox>
+      </td>
+    </tr>
+    <tr [hidden]="!enableTimes">
+      <td>
+        <md-input-container>
+          <input mdInput placeholder="Start Time" #startTime>
+        </md-input-container>*
+      </td>
+      <td>&nbsp;</td>
+      <td>
+        <md-input-container>
+          <input mdInput placeholder="End Time" #endTime>
+        </md-input-container>*
+      </td>
+    </tr>
+    <tr [hidden]="enableTimes">
+      <td></td>
+      <td></td>
+      <td>
+        <label>Decimal or hh:mm</label>&nbsp;
+        <md-input-container>
+          <input mdInput placeholder="Time Spent" #timeSpent>
+        </md-input-container>*
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <md-checkbox #billable (click)="checkIsBillable()">Billable</md-checkbox>
+      </td>
+    </tr>
+  </table>
+</div>
+<div md-dialog-actions>
+  <button type="button" md-button (click)="getValues(description.value,selectedDate.value,startTime.value,endTime.value,timeSpent.value,client.value,project.value,task.value,checkBoxTimes,billable);readDate(selectedDate);checkMandatoryFields();
+    ">OK</button>
+  <button type="button" md-button (click)="dialogRef.close()">Cancel</button>
+</div>
